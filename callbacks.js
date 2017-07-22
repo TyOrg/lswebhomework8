@@ -43,17 +43,33 @@ getLength(foods, function(length) {
 
 // Write a function called last which passes the last item of the array into the callback
 
+function last(arr, cb) {
+  cb(arr[arr.length-1]);
+}
+
+var foods = ['pineapple', 'mango', 'ribeye', 'curry', 'tacos', 'ribeye', 'mango'];
+
+
 last(foods, function(lastItem) {
   console.log('The last item in the array is ' + lastItem);
 });
 
 // Write a function called sumNums that adds two numbers and passes the result to the callback
 
+function sumNums(num1, num2, cb) {
+  cb(num1+num2);
+}
+
 sumNums(5, 10, function(sum) {
   console.log('The sum is ' + sum);
 });
 
-// Write a function called multiplyNums that adds two numbers and passes the result to the callback
+// Write a function called multiplyNums that multiplies two numbers and passes the result to the callback
+
+
+function multiplyNums(num1, num2, cb) {
+  cb(num1*num2);
+}
 
 multiplyNums(5, 10, function(product) {
   console.log('The product is ' + product);
@@ -62,6 +78,17 @@ multiplyNums(5, 10, function(product) {
 // Write a function called contains that checks if an item is present inside of the given array.
 // Pass true to the callback if it is, otherwise pass false
 
+function contains(arr, item, cb) {
+  if (arr.includes[item]) {
+    cb(true);
+  } else {
+    cb(false);
+  }
+}
+
+var foods = ['pineapple', 'mango', 'ribeye', 'curry', 'tacos', 'ribeye', 'mango'];
+
+
 contains(foods, 'ribeye', function(result) {
   console.log(result ? 'ribeye is in the array' : 'ribeye is not in the array');
 });
@@ -69,11 +96,29 @@ contains(foods, 'ribeye', function(result) {
 // Write a function called removeDuplicates that removes all duplicate values from the given array.
 // Pass the array to the callback function.  Do not mutate the original array.
 
+function removeDuplicates(arr, cb){
+ var duplicatesRemoved=[];
+ for(i = 0; i < arr.length; i++) {
+	if(duplicatesRemoved.indexOf(arr[i])==-1) duplicatesRemoved.push(arr[i]);
+ }
+  cb(duplicatesRemoved);
+}
+
 removeDuplicates(foods, function(uniqueFoods) {
   console.log('foods with duplicates removed: ' + uniqueFoods);
 });
 
 // Write a function called forEach that iterates over the provided array and passes the value and index into the callback.
+
+function forEach(arr, cb) {
+  for (i = 0; i < arr.length; i++) {
+    cb(arr[i], index = i);
+  }
+
+}
+
+var foods = ['pineapple', 'mango', 'ribeye', 'curry', 'tacos', 'ribeye', 'mango'];
+
 
 forEach(foods, function(value, index) {
   console.log(value + ' is at index ' + index);
