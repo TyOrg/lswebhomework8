@@ -97,11 +97,11 @@ contains(foods, 'ribeye', function(result) {
 // Pass the array to the callback function.  Do not mutate the original array.
 
 function removeDuplicates(arr, cb){
- var duplicatesRemoved=[];
+ var dupRemov=[];
  for(i = 0; i < arr.length; i++) {
-	if(duplicatesRemoved.indexOf(arr[i])==-1) duplicatesRemoved.push(arr[i]);
+	if(dupRemove.indexOf(arr[i])==-1) dupRemove.push(arr[i]);
  }
-  cb(duplicatesRemoved);
+  cb(dupRemove);
 }
 
 removeDuplicates(foods, function(uniqueFoods) {
